@@ -1,6 +1,13 @@
-function MarkdownInput({ value, onChange, onSave }) {
+function MarkdownInput({ title, onTitleChange, value, onChange, onSave }) {
   return (
     <div className="markdown-input">
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => onTitleChange(e.target.value)}
+        placeholder="Titre de la note..."
+      />
+
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}

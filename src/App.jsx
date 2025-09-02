@@ -5,9 +5,8 @@ import NoteDisplay from "./components/NoteDisplay";
 
 function App() {
 
-  const [note, setNote] = useState(() => {
-    return localStorage.getItem("blocNote") || "";
-  });
+  const [title, setTitle] = useState("");
+  const [note, setNote] = useState("");
 
   // Callback
   const handleMarkdownChange = (value) => {
@@ -15,17 +14,20 @@ function App() {
   };
 
   const handleSave = () => {
-    localStorage.setItem("blocNote", note);
+    const noteData = { title, content: note };
+    localStorage.setItem("blocNote", JSON.stringify(noteData));
   };
 
   return (
     <div>
       <h1>Bloc-Notes</h1>
       
-      <NoteDisplay markdown={note} />
-      
+      <NoteDisplay title={title} markdown={note} />
+
       <MarkdownInput
+        title={title}
         value={note}
+        onTitleChange={setTitle}
         onChange={handleMarkdownChange}
         onSave={handleSave}
       />
