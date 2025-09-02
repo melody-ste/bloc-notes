@@ -22,6 +22,8 @@ function App() {
     <div>
       <h1>Bloc-Notes</h1>
       
+      <NoteDisplay markdown={note} />
+      
       <MarkdownInput
         value={note}
         onChange={handleMarkdownChange}
