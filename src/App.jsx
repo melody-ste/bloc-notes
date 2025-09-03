@@ -62,7 +62,7 @@ function App() {
               onClick={() => setSelectedNoteId(note.id)}
             >
               <strong>{note.title || "Sans titre"}</strong>
-              <p>{note.content.split(" ").slice(0, 15).join(" ")}...</p>
+              <p>{note.content.replace(/[*_~`>#-]/g, "").split(" ").slice(0, 15).join(" ")}...</p>
             </li>
           ))}
         </ul>
@@ -70,9 +70,7 @@ function App() {
 
       <main className="main">
         <div>
-          <h1>Bloc-Notes</h1>
-
-           {selectedNote ? (
+          {selectedNote ? (
           <>
             <NoteDisplay title={selectedNote.title} markdown={selectedNote.content} />
 
