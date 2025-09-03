@@ -10,8 +10,6 @@ This is a simple **Markdown Notes** application built with React. It allows user
 - **Responsive Layout:** Sidebar with a list of notes on the left, editor and preview on the right.  
 
 
----
-
 ## How It Works
 
 1. **Sidebar:** Shows the list of notes with the title and the first ~15 words of the note content.  
